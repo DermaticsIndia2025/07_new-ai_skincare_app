@@ -18,16 +18,30 @@ const Header: React.FC<HeaderProps> = ({ onReset, onCartClick, cartItemCount, on
           <MenuIcon className="w-6 h-6 text-brand-text-muted" />
         </button>
         <div className="flex items-center">
-          {/* Use CompanyLogo SVG component as primary, with image fallback */}
-          <CompanyLogo className="w-32 h-12" textColor="#1e293b" />
-          {/* Hidden image as backup - will show if SVG fails */}
+          {/* Primary logo - your uploaded PNG file */}
           <img
-            src="/test-logo.svg"
+            src="/logo.png"
             alt="Dermatics Logo"
-            className="w-32 h-12 object-contain hidden"
-            style={{ display: 'none' }}
-            onLoad={() => console.log('Backup SVG logo loaded')}
-            onError={() => console.log('Backup SVG logo failed')}
+            className="w-32 h-12 object-contain"
+            onLoad={() => console.log('Your logo.png loaded successfully!')}
+            onError={(e) => {
+              console.log('Your logo.png failed to load, trying alternatives...');
+              const target = e.target as HTMLImageElement;
+              // Try the test SVG as fallback
+              target.src = '/test-logo.svg';
+              target.onError = () => {
+                console.log('All logo files failed, showing text fallback');
+                target.style.display = 'none';
+                // Show text fallback
+                const parent = target.parentElement;
+                if (parent) {
+                  const textLogo = document.createElement('span');
+                  textLogo.className = 'text-lg font-bold text-slate-800';
+                  textLogo.textContent = 'Dermatics';
+                  parent.appendChild(textLogo);
+                }
+              };
+            }}
           />
         </div>
       </div>

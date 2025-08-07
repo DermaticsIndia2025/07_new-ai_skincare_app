@@ -36,17 +36,16 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="mb-12 flex items-center justify-center relative bg-white rounded-xl p-6 w-full aspect-[3.5/1] mx-auto">
           <a href="/" className="flex items-center gap-2 group">
             <img
-              src="/test-logo.svg"
+              src="/logo.png"
               alt="Dermatics Logo"
               className="w-36 h-auto object-contain"
-              onLoad={() => console.log('Sidebar logo loaded successfully')}
+              onLoad={() => console.log('Sidebar logo.png loaded successfully!')}
               onError={(e) => {
-                console.log('Sidebar SVG logo failed, trying PNG...');
+                console.log('Sidebar logo.png failed to load, trying SVG fallback...');
                 const target = e.target as HTMLImageElement;
-                target.src = '/logo.png';
-                target.onError = (pngError) => {
-                  console.log('Sidebar PNG logo also failed, showing text fallback');
-                  console.error('Sidebar PNG Logo error:', pngError);
+                target.src = '/test-logo.svg';
+                target.onError = () => {
+                  console.log('All sidebar logos failed, showing text fallback');
                   target.style.display = 'none';
                   const fallback = document.createElement('div');
                   fallback.innerHTML = '<span class="text-2xl font-bold text-blue-600">Dermatics</span>';
