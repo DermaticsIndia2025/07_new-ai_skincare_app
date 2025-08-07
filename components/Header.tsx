@@ -17,7 +17,20 @@ const Header: React.FC<HeaderProps> = ({ onReset, onCartClick, cartItemCount, on
         <button onClick={onMenuClick} className="p-2 -ml-2 rounded-full hover:bg-black/10 transition-colors" aria-label="Open menu">
           <MenuIcon className="w-6 h-6 text-brand-text-muted" />
         </button>
-        <CompanyLogo className="w-24 h-10" textColor="#1e293b" />
+        <img
+          src="/logo.png"
+          alt="Dermatics Logo"
+          className="w-24 h-10 object-contain"
+          onLoad={() => console.log('Header logo loaded successfully')}
+          onError={(e) => {
+            console.log('Header logo failed to load, showing fallback');
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.innerHTML = '<span class="text-lg font-bold text-slate-800">Dermatics</span>';
+            target.parentNode?.appendChild(fallback);
+          }}
+        />
       </div>
       <div className="flex items-center gap-2">
         <Button onClick={onReset} variant="secondary" size="sm" className="gap-1.5 px-3">
