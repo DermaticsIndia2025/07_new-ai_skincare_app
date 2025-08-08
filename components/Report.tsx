@@ -142,7 +142,30 @@ const Report: React.FC<ReportProps> = ({
             <div id="report-content" className="p-6 sm:p-10 text-slate-800 space-y-10">
                 <header className="flex flex-col sm:flex-row justify-between items-start border-b border-slate-200 pb-6 gap-4">
                     <div className="flex items-center gap-4">
-                        <CompanyLogo className="w-28 h-14 flex-shrink-0" textColor='#1e293b' />
+                        <img
+                            src="/logo.png"
+                            alt="Dermatics Logo"
+                            className="w-28 h-14 object-contain flex-shrink-0"
+                            onLoad={() => console.log('Report logo.png loaded successfully!')}
+                            onError={(e) => {
+                                console.log('Report logo.png failed to load, trying alternatives...');
+                                const target = e.target as HTMLImageElement;
+                                // Try the test SVG as fallback
+                                target.src = '/test-logo.svg';
+                                target.onerror = () => {
+                                    console.log('All logo files failed, showing text fallback');
+                                    target.style.display = 'none';
+                                    // Show text fallback
+                                    const parent = target.parentElement;
+                                    if (parent) {
+                                        const textLogo = document.createElement('span');
+                                        textLogo.className = 'text-lg font-bold text-slate-800';
+                                        textLogo.textContent = 'Dermatics';
+                                        parent.appendChild(textLogo);
+                                    }
+                                };
+                            }}
+                        />
                         <div>
                         <h1 className="text-2xl font-extrabold text-slate-900 tracking-wide">Your AI Skincare Plan</h1>
                         <p className="text-slate-500">Personalized by Dermatics India</p>

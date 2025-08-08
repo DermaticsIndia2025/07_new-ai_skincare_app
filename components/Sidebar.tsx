@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       {/* Scrollable content */}
       <div className="relative z-10 flex-1 overflow-y-auto p-8">
         {/* Logo block with cart */}
-        <div className="mb-12 flex items-center justify-center relative bg-white rounded-xl p-6 w-full aspect-[3.5/1] mx-auto">
+        <div className="mb-12 flex items-center justify-center relative mx-auto">
           <a href="/" className="flex items-center gap-2 group">
             <img
               src="/logo.png"
