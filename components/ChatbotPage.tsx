@@ -45,11 +45,11 @@ const ChatbotPage: React.FC<ChatbotPageProps> = ({
         </div>
 
         <div className="flex-shrink-0 flex justify-between mt-8 pt-6 border-t border-slate-200">
-          <Button onClick={onBack} variant="secondary" size="lg" className="gap-2">
+          <Button onClick={onBack} variant="primary" size="lg" className="gap-2">
             <ArrowLeftIcon className="w-5 h-5" />
             Back to Your Plan
           </Button>
-          <Button onClick={onReset} variant="secondary" size="lg" className="gap-2">
+          <Button onClick={onReset} variant="primary" size="lg" className="gap-2">
             <RefreshCw className="w-5 h-5"/>
             Start Over
           </Button>

@@ -242,7 +242,7 @@ const Step2FaceAnalysis: React.FC<Step2Props> = ({
             </div>
           </div>
           <div className="flex-shrink-0 flex justify-between mt-8 pt-6 border-t border-slate-200">
-            <Button onClick={onBack} variant="secondary" size="lg">Back</Button>
+            <Button onClick={onBack} variant="primary" size="lg">Back</Button>
             <Button onClick={onNext} disabled={!analysisResult} size="lg">Next: Set My Goals</Button>
           </div>
           {isCameraOpen && <CameraCapture onCapture={handlePhotoCapture} onClose={() => setIsCameraOpen(false)} />}
