@@ -376,15 +376,15 @@ const Report: React.FC<ReportProps> = ({
         </div>
         
         <div className="flex-shrink-0 flex justify-center items-center flex-wrap gap-4 p-6 border-t border-slate-200">
-          <Button onClick={onBack} variant="secondary" size="lg" className="gap-2">
+          <Button onClick={onBack} variant="primary" size="lg" className="gap-2">
               <ArrowLeftIcon className="w-5 h-5" />
               Back to Goals
           </Button>
-          <Button onClick={handleDownload} isLoading={isDownloading} variant="secondary" size="lg" className="gap-2">
+          <Button onClick={handleDownload} isLoading={isDownloading} variant="primary" size="lg" className="gap-2">
             <Download className="w-5 h-5"/>
             Download Report
           </Button>
-          <Button onClick={onReset} variant="secondary" size="lg" className="gap-2">
+          <Button onClick={onReset} variant="primary" size="lg" className="gap-2">
             <RefreshCw className="w-5 h-5"/>
             Start Over
           </Button>
