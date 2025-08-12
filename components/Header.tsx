@@ -46,11 +46,11 @@ const Header: React.FC<HeaderProps> = ({ onReset, onCartClick, cartItemCount, on
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Button onClick={onReset} variant="secondary" size="sm" className="gap-1.5 px-3">
+        <Button onClick={onReset} variant="primary" size="sm" className="gap-1.5 px-3">
             <RefreshCw className="w-4 h-4" />
             Reset
         </Button>
-         <Button onClick={onCartClick} variant="secondary" size="sm" className="relative !rounded-full !p-2">
+         <Button onClick={onCartClick} variant="primary" size="sm" className="relative !rounded-full !p-2">
             <ShoppingCartIcon className="w-6 h-6" />
             {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-secondary text-xs font-bold text-white shadow-lg">
